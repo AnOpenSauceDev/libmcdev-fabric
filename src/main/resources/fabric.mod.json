@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "libmcdev-fabric",
+  "version": "${version}",
+  "name": "libmcdev-fabric",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/linux-pop_os-machine/libmcdev-fabric"
+  },
+  "license": "Apache-2.0",
+  "icon": "assets/libmcdev-fabric/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.github.anopensaucedev.libmcdevfabric.client.LibmcdevClient"
+    ],
+    "main": [
+      "com.github.anopensaucedev.libmcdevfabric.Libmcdev"
+    ]
+  },
+  "mixins": [
+    "libmcdev-fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "*"
+  }
+}
