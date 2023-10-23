@@ -10,4 +10,9 @@ a library to speed up development across all my mods by:
 
 Currently, this is being used as a quick hacky replacement for all my mods' logging solutions, but will likely grow into a tool over time.
 
+## Planned Features
+- [X] An efficient and effective logging library.
+- [ ] **Easy** client synced persistent server variables.
+- [ ] The ability to fetch OS-specific details, such as Linux Distributions.
+
 This library is under Apache 2.0, feel free to Jar-in-Jar this mod. 
