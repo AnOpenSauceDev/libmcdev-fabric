@@ -15,6 +15,10 @@ public class Libmcdev implements ModInitializer {
         testDebug.Log("Test debugger sanity check 1");
         testDebug.setLoggerName("we love sanity tests here");
         testDebug.Log("yes we do");
-        testDebug.Log(OSUtils.fetchOSData().toString());
+        testDebug.Log(OSUtils.fetchOSName().toString());
+
+        DataHandlingUtils testDataHandler = new DataHandlingUtils("libmcdev");
+        testDataHandler.Writer.WriteData("helloworld", "Hello World!".toCharArray());
+
     }
 }
