@@ -15,4 +15,8 @@ Currently, this is being used as a quick hacky replacement for all my mods' logg
 - [ ] **Easy** client synced persistent server variables.
 - [X] The ability to fetch OS-specific details, such as Linux Distributions.
 
+  **_possibly happening_**
+- [ ] Paper version?
+- [ ] Folia version?
+
 This library is under Apache 2.0, feel free to Jar-in-Jar this mod. 
