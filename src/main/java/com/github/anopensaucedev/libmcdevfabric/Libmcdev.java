@@ -1,24 +1,22 @@
 package com.github.anopensaucedev.libmcdevfabric;
 
+import com.github.anopensaucedev.libmcdevfabric.tests.Test;
 import net.fabricmc.api.ModInitializer;
+import org.spongepowered.include.com.google.common.base.Charsets;
 
 public class Libmcdev implements ModInitializer {
     /**
      * Runs the mod initializer.
      */
 
-    Debug testDebug = new Debug("libMCdev's sanity checker"); // sanity checker
+
 
     @Override
     public void onInitialize() {
-        Debug.LogInternal("libMCdev has loaded.");
-        testDebug.Log("Test debugger sanity check 1");
-        testDebug.setLoggerName("we love sanity tests here");
-        testDebug.Log("yes we do");
-        testDebug.Log(OSUtils.fetchOSName().toString());
 
-        DataHandlingUtils testDataHandler = new DataHandlingUtils("libmcdev");
-        testDataHandler.Writer.WriteData("helloworld", "Hello World!".toCharArray());
+        Test.runTests();
+
+        //testDebug.Log(new String(testDataHandler.Reader.ReadData("helloworld"), Charsets.UTF_8));
 
     }
 }
