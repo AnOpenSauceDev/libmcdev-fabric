@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.net.URL;
 
 @Environment(EnvType.CLIENT)
@@ -33,15 +34,11 @@ public class MCDevURLImage {
     public void updateImage(){
         if(!Libmcdev.isClient) return;
         try{
-            BufferedImage img = ImageIO.read(imageLocation);
-            NativeImage image = new NativeImage(NativeImage.Format.RGBA,img.getWidth(),img.getHeight(),true);
+
+            InputStream stream = imageLocation.openStream();
+            NativeImage image = NativeImage.read(stream);
 
             new Thread(()->{ // blit stuff in a way that isn't really slow
-                for(int x = 0; x < img.getWidth(); x++){
-                    for(int y = 0; y < img.getHeight(); y++){
-                        image.setColor(x,y,img.getRGB(x,y));
-                    }
-                }
                 texture = new NativeImageBackedTexture(image);
                 MinecraftClient.getInstance().getTextureManager().registerTexture(textureID,texture);
 
