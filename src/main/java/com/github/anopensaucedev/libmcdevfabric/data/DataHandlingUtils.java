@@ -1,5 +1,7 @@
-package com.github.anopensaucedev.libmcdevfabric;
+package com.github.anopensaucedev.libmcdevfabric.data;
 
+import com.github.anopensaucedev.libmcdevfabric.Debug;
+import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;

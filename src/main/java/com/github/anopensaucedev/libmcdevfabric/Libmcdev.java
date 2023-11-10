@@ -9,7 +9,7 @@ public class Libmcdev implements ModInitializer {
      * Runs the mod initializer.
      */
 
-
+    public static boolean isClient = false;
 
     @Override
     public void onInitialize() {
