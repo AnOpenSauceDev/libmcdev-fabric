@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.graphics;
+package com.github.anopensaucedev.libmcdevfabric.media;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
@@ -10,8 +10,6 @@ import net.minecraft.client.texture.NativeImageBackedTexture;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -31,6 +29,8 @@ public class MCDevURLImage {
     public String name;
     public NativeImageBackedTexture texture;
 
+    public int width,height;
+
     public void updateImage(){
         if(!Libmcdev.isClient) return;
         try{
@@ -38,11 +38,12 @@ public class MCDevURLImage {
             InputStream stream = imageLocation.openStream();
             NativeImage image = NativeImage.read(stream);
 
-            new Thread(()->{ // blit stuff in a way that isn't really slow
+            new Thread(()->{
                 texture = new NativeImageBackedTexture(image);
                 MinecraftClient.getInstance().getTextureManager().registerTexture(textureID,texture);
-
             }).run();
+            width = image.getWidth();
+            height = image.getHeight();
 
         }catch (Exception ex){
             Debug.InternalLogError("ERROR: failed to fetch image: " + ex.getLocalizedMessage());

@@ -1,7 +1,8 @@
 package com.github.anopensaucedev.libmcdevfabric.client;
 
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
-import com.github.anopensaucedev.libmcdevfabric.graphics.HudRenderCallbackListener;
+import com.github.anopensaucedev.libmcdevfabric.media.HudRenderCallbackListener;
+import com.github.anopensaucedev.libmcdevfabric.media.SequencedImage;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -18,6 +19,8 @@ public class LibmcdevClient implements ClientModInitializer {
         HudRenderCallbackListener listener = new HudRenderCallbackListener();
 
         HudRenderCallback.EVENT.register(listener);
+
+
 
     }
 }

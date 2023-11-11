@@ -4,6 +4,7 @@ import com.github.anopensaucedev.libmcdevfabric.data.DataHandlingUtils;
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.OSUtils;
 import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
+import com.github.anopensaucedev.libmcdevfabric.media.SequencedImage;
 
 public class Test {
 
@@ -12,6 +13,8 @@ public class Test {
     public static void runTests(){
 
         Debug testslogger = new Debug(TempNameGenerator.returnTempName());
+
+
 
         try{
             testslogger.Log("----------------------");
