@@ -18,7 +18,7 @@ public class MCDevURLImage {
 
     @Nullable URL imageLocation;
 
-    public MCDevURLImage(URL url,String name){
+    public MCDevURLImage(@Nullable URL url, String name){
         this.imageLocation = url;
         this.name = name;
         this.textureID = new Identifier("libmcdev-generated",name);
@@ -34,16 +34,22 @@ public class MCDevURLImage {
     public void updateImage(){
         if(!Libmcdev.isClient) return;
         try{
+            NativeImage image;
 
-            InputStream stream = imageLocation.openStream();
-            NativeImage image = NativeImage.read(stream);
+            if (imageLocation != null) {
+                InputStream stream = imageLocation.openStream();
+                 image = NativeImage.read(stream);
+            }else {
+                image = new NativeImage(1,1,false);
+            }
 
-            new Thread(()->{
-                texture = new NativeImageBackedTexture(image);
-                MinecraftClient.getInstance().getTextureManager().registerTexture(textureID,texture);
-            }).run();
-            width = image.getWidth();
-            height = image.getHeight();
+                new Thread(() -> {
+                    texture = new NativeImageBackedTexture(image);
+                    MinecraftClient.getInstance().getTextureManager().registerTexture(textureID, texture);
+                }).run();
+                width = image.getWidth();
+                height = image.getHeight();
+
 
         }catch (Exception ex){
             Debug.InternalLogError("ERROR: failed to fetch image: " + ex.getLocalizedMessage());

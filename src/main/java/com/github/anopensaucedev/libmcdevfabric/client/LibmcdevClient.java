@@ -4,7 +4,6 @@ import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayModel;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayRenderer;
 import com.github.anopensaucedev.libmcdevfabric.media.HudRenderCallbackListener;
-import com.github.anopensaucedev.libmcdevfabric.media.SequencedImage;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
