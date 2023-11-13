@@ -16,39 +16,64 @@ import java.net.URL;
 @Environment(EnvType.CLIENT)
 public class MCDevURLImage {
 
+    boolean isRegistered = false;
+
     @Nullable URL imageLocation;
 
     public MCDevURLImage(@Nullable URL url, String name){
         this.imageLocation = url;
         this.name = name;
         this.textureID = new Identifier("libmcdev-generated",name);
-        updateImage();
+        updateImage(true);
+    }
+
+    public MCDevURLImage(@Nullable URL url, String name,boolean registerImage){
+        this.imageLocation = url;
+        this.name = name;
+        this.textureID = new Identifier("libmcdev-generated",name);
+        updateImage(registerImage);
     }
 
     public Identifier textureID;
     public String name;
     public NativeImageBackedTexture texture;
 
+    private NativeImage image;
+
     public int width,height;
 
-    public void updateImage(){
+    public void updateImage(boolean register){
         if(!Libmcdev.isClient) return;
         try{
-            NativeImage image;
 
-            if (imageLocation != null) {
-                InputStream stream = imageLocation.openStream();
-                 image = NativeImage.read(stream);
-            }else {
-                image = new NativeImage(1,1,false);
-            }
 
-                new Thread(() -> {
-                    texture = new NativeImageBackedTexture(image);
-                    MinecraftClient.getInstance().getTextureManager().registerTexture(textureID, texture);
-                }).run();
-                width = image.getWidth();
-                height = image.getHeight();
+
+
+                    new Thread(() -> {
+
+                        if (imageLocation != null) {
+                            try {
+                            InputStream stream = imageLocation.openStream();
+                            image = NativeImage.read(stream);
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                        }else {
+
+                            image = new NativeImage(1,1,true); // useStb seems to do nothing judjing by spark. This is the #1 lag-causer
+
+                        }
+
+                        texture = new NativeImageBackedTexture(image);
+                        if(register) {
+                        MinecraftClient.getInstance().getTextureManager().registerTexture(textureID, texture);
+                        isRegistered = true;
+                            width = image.getWidth();
+                            height = image.getHeight();
+                        }
+                    }).run();
+
+
 
 
         }catch (Exception ex){
@@ -56,6 +81,11 @@ public class MCDevURLImage {
             ex.printStackTrace();
         }
 
+    }
+
+    public void RegisterTexture(){
+        MinecraftClient.getInstance().getTextureManager().registerTexture(textureID, texture);
+        isRegistered = true;
     }
 
 }
