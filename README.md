@@ -14,7 +14,7 @@ Currently, this is being used as a quick hacky replacement for all my mods' logg
 - [X] An efficient and effective logging library.
 - [ ] **Easy** client synced persistent server variables.
 - [X] The ability to fetch OS-specific details, such as Linux Distributions. (CentOS, Rocky, and Alpine Linux **_probably_ won't work,** as they _usually_ don't use `/etc/os-release`)
-- [ ] A simple video and animated image rendering API.
+- [ ] A simple video and animated image rendering API. (80% done)
 
   <hr>
   
