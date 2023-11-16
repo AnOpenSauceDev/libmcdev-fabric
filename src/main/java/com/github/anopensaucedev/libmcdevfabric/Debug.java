@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 public class Debug {
 
 
-    public String DebugLoggerName;
+    public String DebugLoggerName; // the name of our logger
 
     public static String InternalLoggerName = "libMCdev Debug Logger";
 
@@ -15,14 +15,14 @@ public class Debug {
 
     public static Logger InternalLogger = LoggerFactory.getLogger(InternalLoggerName);
 
-    public static boolean isDev = FabricLoader.getInstance().isDevelopmentEnvironment();
+    public static boolean isDev = FabricLoader.getInstance().isDevelopmentEnvironment(); // Useful for running developer-only code in-game
 
-    public void setLoggerName(String newName){
+    public void setLoggerName(String newName){ // allows developers to change debug logger names.
         DebugLoggerName = newName;
         DebugLogger = LoggerFactory.getLogger(DebugLoggerName); // reset our logger
     }
 
-    public Debug(String debugLoggerName){
+    public Debug(String debugLoggerName){ // create a logger instance
         this.DebugLoggerName = debugLoggerName;
         this.DebugLogger = LoggerFactory.getLogger(DebugLoggerName);
     }

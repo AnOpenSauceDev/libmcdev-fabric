@@ -3,7 +3,12 @@ package com.github.anopensaucedev.libmcdevfabric.media;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
+import com.github.anopensaucedev.libmcdevfabric.media.UI.Panel;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,30 +17,19 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
 
     MCDevURLImage testImage;
 
-
-
-
-
     boolean b = true;
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
+
+        /*
             if(Debug.isDev){
-            //if(b){CreateTestImage(); b = false; sImg.RetriveImages(6572);}
-            //drawContext.drawTexture(testImage.textureID, (MinecraftClient.getInstance().getWindow().getScaledWidth() / 2) - 200, (MinecraftClient.getInstance().getWindow().getScaledWidth() / 2) - 200, 0, 0, testImage.width/4,testImage.height/4,testImage.width/4,testImage.height/4);
-
-            //drawContext.drawTexture(sImg.images[fcount].textureID, (MinecraftClient.getInstance().getWindow().getScaledWidth() / 2) - 200, (MinecraftClient.getInstance().getWindow().getScaledWidth() / 2) - 200, 0, 0, testImage.width/4,testImage.height/4,testImage.width/4,testImage.height/4);
-
-
+                // lower = higher, vice versa
+                Panel messagePanel = new Panel(drawContext.getScaledWindowWidth() - 300, drawContext.getScaledWindowHeight() - 80, new Identifier("libmcdev","textures/gui/panel-wide.png"),128,64);
+                messagePanel.draw(drawContext);
+                drawContext.drawText(MinecraftClient.getInstance().textRenderer,"Hello there! Welcome", messagePanel.x + 10, messagePanel.y + 20, 0xFFFFFFFF,true);
+                drawContext.drawText(MinecraftClient.getInstance().textRenderer,"to libMCdev!", messagePanel.x + 10, messagePanel.y + 28, 0xFFFFFFFF,true);
             }
-    }
+        */
 
-    public void CreateTestImage(){
-        try {
-            testImage = new MCDevURLImage(new URL("https://static.wikia.nocookie.net/amogus/images/c/cb/Susremaster.png/revision/latest?cb=20210806124552"), TempNameGenerator.returnTempName());
-
-            Debug.LogInternal("generated image " + testImage.name);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

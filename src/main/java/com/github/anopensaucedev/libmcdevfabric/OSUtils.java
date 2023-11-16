@@ -7,7 +7,8 @@ import java.nio.charset.StandardCharsets;
 
 public class OSUtils {
 
-    private static String LSB_REMOVAL_PATTERN = "Description:\t"; // we don't use lsb_release, because most distros either a) don't have it, or b) allow /etc/os-release to be accessed.
+    @Deprecated
+    private static final String LSB_REMOVAL_PATTERN = "Description:\t"; // we don't use lsb_release, because most distros either a) don't have it, or b) allow /etc/os-release to be accessed.
 
     public static boolean IS_UNIX_LIKE = SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_UNIX || SystemUtils.IS_OS_SOLARIS || SystemUtils.IS_OS_FREE_BSD || SystemUtils.IS_OS_NET_BSD || SystemUtils.IS_OS_OPEN_BSD;
     //fetch distribution here.
@@ -19,7 +20,6 @@ public class OSUtils {
 
         if(IS_UNIX_LIKE) {
             try {
-
                 Process data = Runtime.getRuntime().exec("cat /etc/os-release"); // will not work on Alpine or CentOS-based. FreeBSD should work though.
                 String osdata = new String(data.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
                 String[] osrelease = osdata.split("\\r?\\n"); // so we can actually read the lines
@@ -56,19 +56,20 @@ public class OSUtils {
 
     }
 
-    public int isProgramRunning(String procName){ // hopefully supported by most UNIX-Like OS'es, made for a small kludge
+    @Deprecated
+    public boolean isProgramRunning(String procName){ // nobody should use this.
         try {
             Process data = Runtime.getRuntime().exec("pgrep " + procName);
             String pdata = new String(data.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
             if (pdata.isEmpty()){
-                return 0;
+                return false;
             }else {
-                return 1;
+                return true;
             }
         } catch (IOException e) {
             e.printStackTrace();
             Debug.InternalLogError("Pgrep FAILED!");
-            return -1;
+            return false;
         }
     }
 
