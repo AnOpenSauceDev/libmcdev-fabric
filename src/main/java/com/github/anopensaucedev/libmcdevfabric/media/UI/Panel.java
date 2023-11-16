@@ -19,7 +19,7 @@ public class Panel {
     private Identifier Texture;
 
     public void draw(DrawContext context){
-        context.drawTexture(Texture,x,y,0,0,width,height,width,height);
+        context.drawGuiTexture(Texture,x,y,0,0,width,height,width,height);
     }
 
 }
