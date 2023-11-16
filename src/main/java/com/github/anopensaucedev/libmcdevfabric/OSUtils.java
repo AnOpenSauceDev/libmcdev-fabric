@@ -56,23 +56,4 @@ public class OSUtils {
 
     }
 
-    @Deprecated
-    public boolean isProgramRunning(String procName){ // nobody should use this.
-        try {
-            Process data = Runtime.getRuntime().exec("pgrep " + procName);
-            String pdata = new String(data.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
-            if (pdata.isEmpty()){
-                return false;
-            }else {
-                return true;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            Debug.InternalLogError("Pgrep FAILED!");
-            return false;
-        }
-    }
-
-
-
 }

@@ -15,13 +15,12 @@ import java.net.URL;
 
 public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback {
 
-    MCDevURLImage testImage;
 
-    boolean b = true;
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
 
 
+        /*
             if(Debug.isDev){
                 // lower = higher, vice versa
                 Panel messagePanel = new Panel(drawContext.getScaledWindowWidth() - 300, drawContext.getScaledWindowHeight() - 80, new Identifier("libmcdev","textures/gui/panel-wide.png"),128,64);
@@ -29,7 +28,7 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
                 drawContext.drawText(MinecraftClient.getInstance().textRenderer,"Hello there! Welcome", messagePanel.x + 10, messagePanel.y + 20, 0xFFFFFFFF,true);
                 drawContext.drawText(MinecraftClient.getInstance().textRenderer,"to libMCdev!", messagePanel.x + 10, messagePanel.y + 28, 0xFFFFFFFF,true);
             }
-
+           */
 
     }
 }
