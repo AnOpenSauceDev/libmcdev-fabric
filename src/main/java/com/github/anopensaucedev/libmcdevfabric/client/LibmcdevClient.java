@@ -1,5 +1,6 @@
 package com.github.anopensaucedev.libmcdevfabric.client;
 
+import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayModel;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayRenderer;
@@ -28,11 +29,13 @@ public class LibmcdevClient implements ClientModInitializer {
 
         HudRenderCallback.EVENT.register(listener);
 
-        EntityRendererRegistry.INSTANCE.register(Libmcdev.DISPLAY, (context) -> {
-            return new DisplayRenderer(context);
-        });
 
-        EntityModelLayerRegistry.registerModelLayer(SCREEN_LAYER, DisplayModel::getTexturedModelData);
+        if(Debug.isDev) {
+            EntityRendererRegistry.INSTANCE.register(Libmcdev.DISPLAY, (context) -> {
+                return new DisplayRenderer(context);
+            });
 
+            EntityModelLayerRegistry.registerModelLayer(SCREEN_LAYER, DisplayModel::getTexturedModelData);
+        }
     }
 }
