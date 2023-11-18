@@ -38,7 +38,17 @@ public class MCDevURLImage {
     public String name;
     public NativeImageBackedTexture texture;
 
-    private NativeImage image;
+    public NativeImage image;
+
+    public static final int WHITE_RGBA = 0xFFFFFFFF; // WHITE_RGB with an extra alpha byte
+
+    public static final int WHITE_RGB = 0xFFFFFF;
+
+    public static final int BLACK_RGBA = 0x000000FF; // BLACK_RGB with an extra alpha byte
+
+    public static final int BLACK_RGB = 0x000000;
+
+    public static final int BLACK_TRANSPARENT = 0x00000000; // BLACK_RGBA, but the alpha byte is zero.
 
     public int width,height;
 
@@ -68,9 +78,9 @@ public class MCDevURLImage {
                         if(register) {
                         MinecraftClient.getInstance().getTextureManager().registerTexture(textureID, texture);
                         isRegistered = true;
-                            width = image.getWidth();
-                            height = image.getHeight();
                         }
+                        width = image.getWidth();
+                        height = image.getHeight();
                     }).run();
 
 

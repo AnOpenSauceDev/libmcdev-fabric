@@ -28,7 +28,8 @@ public class ImageSequence { // a really jank brute-force method im using to pla
 
                 for(int x = 1; x < frames; x++){
                     File dir = file.toPath().resolve(String.format("%s.png",x)).toFile();
-                    images[x] = new MCDevURLImage(dir.toURL(),x +"",true);
+                    images[x] = new MCDevURLImage(dir.toURL(),x +"",false);
+                    images[1].RegisterTexture(); // register the first frame.
 
                 }
             }
