@@ -31,32 +31,30 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
 
-        if(MinecraftClient.getInstance().player.isSneaking()){
+
 
         MinecraftClient client = MinecraftClient.getInstance();
         TextRenderer textRenderer = client.textRenderer;
 
         Window mainWindow = MinecraftClient.getInstance().getWindow();
 
-        Vec3d Pos = new Vec3d(64,128,64);
-
+        Vec3d Pos = client.player.getPos();
 
         Vector4f screenPos = projectWorldPointToScreenSpace(vec3ToVector3D(Pos), client.gameRenderer, drawContext.getMatrices());
 
-
-
+        screenPos.div(1.0f);
 
         textRenderer.draw(
-                Text.of("Lorem Ipsum Dolor Sit Amet"),
-                (int) mainWindow.getScaledWidth() - screenPos.x, mainWindow.getScaledHeight() - screenPos.y, // Use the projected screen coordinates
-                0xFFFFFFFF, // Color
+                Text.of(screenPos.toString()),
+                screenPos.x,   screenPos.y, // Use the projected screen coordinates
+                0xFFFFFFFF,
                 false,
-                projectWorldPointToScreenSpaceMatrix(client.gameRenderer, drawContext.getMatrices()),
+                drawContext.getMatrices().peek().getPositionMatrix(),
                 drawContext.getVertexConsumers(),
                 TextRenderer.TextLayerType.NORMAL,
                 BLACK_TRANSPARENT,
                 WHITE_RGBA
         );
         }
-    }
+
 }

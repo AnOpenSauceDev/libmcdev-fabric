@@ -1,5 +1,6 @@
 package com.github.anopensaucedev.libmcdevfabric;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.Window;
@@ -15,10 +16,8 @@ public class MCDEVMathUtils {
 
 
     public static Vector4f projectWorldPointToScreenSpace(Vector3d worldPosition, GameRenderer renderer, MatrixStack stack) {
-        Matrix4f viewMatrix = stack.peek().getPositionMatrix(); // this should be the view matrix, but it has nothing for some reason
-        Debug.LogInternal("ViewMatrix: " + viewMatrix.toString());
-        Matrix4f projectionMatrix = renderer.getBasicProjectionMatrix(getProjectionViaOptions()); // yep
-        Debug.LogInternal("ProjMatrix: " + projectionMatrix.toString());
+        Matrix4f viewMatrix = RenderSystem.getModelViewMatrix();
+        Matrix4f projectionMatrix = renderer.getBasicProjectionMatrix(getProjectionViaOptions());
         Matrix4f viewProjMatrix = new Matrix4f(projectionMatrix);
         viewProjMatrix.mul(viewMatrix);
         Vector4f worldPos = new Vector4f((float) worldPosition.x, (float) worldPosition.y, (float) worldPosition.z, 1.0f);
