@@ -15,14 +15,16 @@ public class MCDEVMathUtils {
     public static ThreadLocalRandom SHARED_RANDOM = ThreadLocalRandom.current();
 
 
-    public static Vector4f projectWorldPointToScreenSpace(Vector3d worldPosition, GameRenderer renderer, MatrixStack stack) {
-        Matrix4f viewMatrix = RenderSystem.getModelViewMatrix();
+    //WARNING! I AM NOT A GRAPHICS PROGRAMMER, EXPECT JANK!
+    public static Vector2d projectWorldPointToScreenSpace(Vector3f worldPosition, Window window, GameRenderer renderer, MatrixStack stack) {
+        Matrix4f viewMatrix = stack.peek().getPositionMatrix();
+        Debug.LogInternal(viewMatrix.toString());
         Matrix4f projectionMatrix = renderer.getBasicProjectionMatrix(getProjectionViaOptions());
         Matrix4f viewProjMatrix = new Matrix4f(projectionMatrix);
         viewProjMatrix.mul(viewMatrix);
-        Vector4f worldPos = new Vector4f((float) worldPosition.x, (float) worldPosition.y, (float) worldPosition.z, 1.0f);
-        viewProjMatrix.transform(worldPos);
-        return worldPos;
+        Vector3f screenPosition = viewProjMatrix.transformProject(worldPosition);
+        screenPosition.add(1f,1f,1f).mul(0.5f);
+        return new Vector2d(screenPosition.x * window.getScaledWidth(),screenPosition.y * window.getScaledHeight());
     }
 
     public static Matrix4f projectWorldPointToScreenSpaceMatrix(GameRenderer renderer, MatrixStack stack){
@@ -35,6 +37,10 @@ public class MCDEVMathUtils {
 
     public static Vector3d vec3ToVector3D(Vec3d vector){
         return new Vector3d(vector.x,vector.y,vector.z);
+    }
+
+    public static Vector3f vec3ToVector3F(Vec3d vector){
+        return new Vector3f((float) vector.x,(float) vector.y,(float) vector.z);
     }
 
     public static int getProjectionViaOptions(){

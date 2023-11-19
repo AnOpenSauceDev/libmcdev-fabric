@@ -11,12 +11,13 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.Window;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShapes;
-import org.joml.Vector4f;
+import org.joml.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,29 +33,17 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
     public void onHudRender(DrawContext drawContext, float tickDelta) {
 
 
-
+        //this took a whole day to figure out, due to me thinking that minecraft would be sane.
         MinecraftClient client = MinecraftClient.getInstance();
-        TextRenderer textRenderer = client.textRenderer;
+        Window mainWindow = client.getWindow();
 
-        Window mainWindow = MinecraftClient.getInstance().getWindow();
 
-        Vec3d Pos = client.player.getPos();
+        Vector2d point = projectWorldPointToScreenSpace(new Vector3f(0,128,0),mainWindow,client.gameRenderer,drawContext.getMatrices());
 
-        Vector4f screenPos = projectWorldPointToScreenSpace(vec3ToVector3D(Pos), client.gameRenderer, drawContext.getMatrices());
+        Debug.LogInternal("x:" + point.x + " y: " + point.y + " s: " + mainWindow.getWidth() + " a " + mainWindow.getHeight() + " s:" + mainWindow.getScaledWidth());
 
-        screenPos.div(1.0f);
+        client.textRenderer.draw(point.toString(), (float) point.x, (float) point.y,WHITE_RGBA,true,drawContext.getMatrices().peek().getPositionMatrix(), drawContext.getVertexConsumers(), TextRenderer.TextLayerType.NORMAL,BLACK_TRANSPARENT,WHITE_RGBA);
 
-        textRenderer.draw(
-                Text.of(screenPos.toString()),
-                screenPos.x,   screenPos.y, // Use the projected screen coordinates
-                0xFFFFFFFF,
-                false,
-                drawContext.getMatrices().peek().getPositionMatrix(),
-                drawContext.getVertexConsumers(),
-                TextRenderer.TextLayerType.NORMAL,
-                BLACK_TRANSPARENT,
-                WHITE_RGBA
-        );
-        }
 
+    }
 }
