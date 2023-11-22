@@ -65,7 +65,7 @@ public class MCDEVMathUtils {
         Matrix4f ModelViewProjection = FetchModelViewMatrix(client).mul(getProjectionMatrix(client)); // M * V * P
         int[] viewport = {window.getWidth(), window.getHeight(), window.getX(),window.getY()};
         Vector4f windowcoords = new Vector4f();
-        ModelViewProjection.unproject(pos,viewport,windowcoords);
+        ModelViewProjection.project(pos,viewport,windowcoords);
         Debug.LogInternal("windowcoords:"+windowcoords.toString());
         return windowcoords;
     }
