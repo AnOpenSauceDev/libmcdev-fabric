@@ -13,7 +13,7 @@ public class MCDEVMathUtils {
     public static ThreadLocalRandom SHARED_RANDOM = ThreadLocalRandom.current();
 
 
-    public Matrix4f FetchModelViewMatrix(MinecraftClient client){ // code mostly from JMonkey
+    public static Matrix4f FetchModelViewMatrix(MinecraftClient client){ // code mostly from JMonkey
         Quaternionf rotation =  client.gameRenderer.getCamera().getRotation();
         float norm = norm(rotation);
         // we explicitly test norm against one here, saving a division
@@ -52,11 +52,11 @@ public class MCDEVMathUtils {
         return new Matrix4f().set(stuff);
     }
 
-    public Matrix4f getProjectionMatrix(MinecraftClient client){
+    public static Matrix4f getProjectionMatrix(MinecraftClient client){
        return client.gameRenderer.getBasicProjectionMatrix(client.options.getFov().getValue());
     }
 
-    public Vector4f GetScreenSpaceVec4(MinecraftClient client, Window window, Vector3f pos){
+    public static Vector4f GetScreenSpaceVec4(MinecraftClient client, Window window, Vector3f pos){
         Matrix4f ModelViewProjection = FetchModelViewMatrix(client).mul(getProjectionMatrix(client)); // M * V * P
         int[] viewport = {window.getWidth(), window.getHeight(), window.getX(),window.getY()};
         Vector4f windowcoords = new Vector4f();
@@ -64,7 +64,7 @@ public class MCDEVMathUtils {
         return windowcoords;
     }
 
-    public Vector2f WorldPointToScreenSpace(MinecraftClient client, Window window, Vector3f pos){
+    public static Vector2f WorldPointToScreenSpace(MinecraftClient client, Window window, Vector3f pos){
        Vector4f space = GetScreenSpaceVec4(client,window,pos);
        float x = space.x / space.z;
        float y = space.y / space.z;
@@ -72,7 +72,7 @@ public class MCDEVMathUtils {
     }
 
 
-    public float norm(Quaternionf quat) {
+    public static float norm(Quaternionf quat) {
         return quat.w * quat.w + quat.x * quat.x + quat.y * quat.y + quat.z * quat.z;
     }
 

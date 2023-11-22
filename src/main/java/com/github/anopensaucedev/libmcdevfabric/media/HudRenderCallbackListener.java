@@ -35,7 +35,7 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
 
         if(MinecraftClient.getInstance().player.isSneaking()){
             CameraUtils.DetachCamera(MinecraftClient.getInstance());
-            
+
         }
 
 
