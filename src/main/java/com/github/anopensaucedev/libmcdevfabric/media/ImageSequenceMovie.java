@@ -17,6 +17,8 @@ public class ImageSequenceMovie extends ImageSequence { // ImageSequences don't 
         }
     }
 
+
+
     public MCDevURLImage getCurrentFrame(){
         return images[frame];
     }

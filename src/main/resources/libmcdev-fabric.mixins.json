@@ -6,6 +6,7 @@
   "mixins": [
   ],
   "client": [
+    "FovMixin"
   ],
   "injectors": {
     "defaultRequire": 1
