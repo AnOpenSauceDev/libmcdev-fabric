@@ -12,9 +12,14 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.joml.Vector2d;
+import org.joml.Vector2f;
+import org.joml.Vector3f;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static com.github.anopensaucedev.libmcdevfabric.media.GraphicsUtils.WHITE_RGBA;
 
 public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback {
 
@@ -35,7 +40,10 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
 
         if(MinecraftClient.getInstance().player.isSneaking()){
             CameraUtils.DetachCamera(MinecraftClient.getInstance());
-
+            TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
+            MinecraftClient client = MinecraftClient.getInstance();
+            Vector2f res = MCDEVMathUtils.WorldPointToScreenSpace(client,client.getWindow(),new Vector3f(32,120,32));
+            drawContext.drawText(renderer,"guh",(int) res.x,(int) res.y,WHITE_RGBA,true);
         }
 
 

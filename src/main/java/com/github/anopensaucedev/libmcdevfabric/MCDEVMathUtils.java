@@ -36,7 +36,7 @@ public class MCDEVMathUtils {
         float zw = rotation.w * zs;
 
 
-        float[] stuff = new float[10];
+        float[] stuff = new float[16];
 
         // using s=2/norm (instead of 1/norm) saves 9 multiplications by 2 here
         stuff[0] = 1 - (yy + zz);
@@ -49,11 +49,17 @@ public class MCDEVMathUtils {
         stuff[9] = (yz + xw);
         stuff[10] = 1 - (xx + yy);
 
-        return new Matrix4f().set(stuff);
+
+        Matrix4f data = new Matrix4f().set(stuff);
+
+        Debug.LogInternal(data.toString());
+        return data;
     }
 
     public static Matrix4f getProjectionMatrix(MinecraftClient client){
-       return client.gameRenderer.getBasicProjectionMatrix(client.options.getFov().getValue());
+        Matrix4f mtx =  client.gameRenderer.getBasicProjectionMatrix(client.options.getFov().getValue());
+        Debug.LogInternal(mtx.toString());
+       return mtx;
     }
 
     public static Vector4f GetScreenSpaceVec4(MinecraftClient client, Window window, Vector3f pos){
@@ -61,6 +67,7 @@ public class MCDEVMathUtils {
         int[] viewport = {window.getWidth(), window.getHeight(), window.getX(),window.getY()};
         Vector4f windowcoords = new Vector4f();
         ModelViewProjection.unproject(pos,viewport,windowcoords);
+        Debug.LogInternal(windowcoords.toString());
         return windowcoords;
     }
 
@@ -68,7 +75,7 @@ public class MCDEVMathUtils {
        Vector4f space = GetScreenSpaceVec4(client,window,pos);
        float x = space.x / space.z;
        float y = space.y / space.z;
-       return new Vector2f(space.x,space.y);
+       return new Vector2f(x,y);
     }
 
 
