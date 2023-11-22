@@ -52,13 +52,12 @@ public class MCDEVMathUtils {
 
         Matrix4f data = new Matrix4f().set(stuff);
 
-        Debug.LogInternal(data.toString());
+        Debug.LogInternal("quatmodelviewMatrix"+data.toString());
         return data;
     }
 
     public static Matrix4f getProjectionMatrix(MinecraftClient client){
         Matrix4f mtx =  client.gameRenderer.getBasicProjectionMatrix(client.options.getFov().getValue());
-        Debug.LogInternal(mtx.toString());
        return mtx;
     }
 
@@ -67,7 +66,7 @@ public class MCDEVMathUtils {
         int[] viewport = {window.getWidth(), window.getHeight(), window.getX(),window.getY()};
         Vector4f windowcoords = new Vector4f();
         ModelViewProjection.unproject(pos,viewport,windowcoords);
-        Debug.LogInternal(windowcoords.toString());
+        Debug.LogInternal("windowcoords:"+windowcoords.toString());
         return windowcoords;
     }
 
