@@ -2,6 +2,7 @@ package com.github.anopensaucedev.libmcdevfabric.client;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
+import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayModel;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayRenderer;
 import com.github.anopensaucedev.libmcdevfabric.media.HudRenderCallbackListener;
@@ -11,6 +12,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
@@ -26,7 +28,6 @@ public class LibmcdevClient implements ClientModInitializer {
     public void onInitializeClient() {
         Libmcdev.isClient = true; // race conditions shouldn't be a problem, as long as you're careful.
         HudRenderCallbackListener listener = new HudRenderCallbackListener();
-
         HudRenderCallback.EVENT.register(listener);
 
 
@@ -36,6 +37,14 @@ public class LibmcdevClient implements ClientModInitializer {
             });
 
             EntityModelLayerRegistry.registerModelLayer(SCREEN_LAYER, DisplayModel::getTexturedModelData);
+
         }
     }
+
+    public static String instancename = genName();
+
+    private static String genName(){ // Will not work before the game has properly loaded.
+       return  "Minecraft " + MinecraftClient.getInstance().getGameVersion() + " " + TempNameGenerator.returnTempName() + " libMCdev-DEBUG";
+    }
+
 }
