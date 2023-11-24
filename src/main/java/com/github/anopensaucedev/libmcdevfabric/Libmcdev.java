@@ -40,6 +40,7 @@ public class Libmcdev implements ModInitializer {
                     FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DisplayEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
             );
             FabricDefaultAttributeRegistry.register(DISPLAY, DisplayEntity.createMobAttributes());
+            Test.runTests();
         }
 
         /*
@@ -48,7 +49,7 @@ public class Libmcdev implements ModInitializer {
         */
 
 
-        Test.runTests();
+
 
 
     }
