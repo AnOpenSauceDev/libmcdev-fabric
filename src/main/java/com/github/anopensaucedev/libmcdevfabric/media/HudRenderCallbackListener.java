@@ -12,6 +12,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import org.joml.Vector2d;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
@@ -42,7 +43,8 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
             CameraUtils.DetachCamera(MinecraftClient.getInstance());
             TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
             MinecraftClient client = MinecraftClient.getInstance();
-            Vector2f res = MCDEVMathUtils.WorldPointToScreenSpace(client,client.getWindow(),new Vector3f(32,120,32));
+            Vector2d res = MCDEVMathUtils.projectWorldPointToScreenSpace(new Vec3d(32,128,32),client.getWindow(),client);
+            Debug.LogInternal("x:" + res.x + " y:" + res.y);
             drawContext.drawText(renderer,"guh",(int) res.x,(int) res.y,WHITE_RGBA,true);
         }
 
