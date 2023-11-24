@@ -20,6 +20,7 @@ import org.joml.Vector3f;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 
 import static com.github.anopensaucedev.libmcdevfabric.media.GraphicsUtils.WHITE_RGBA;
 
@@ -47,7 +48,11 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
             // the "normal" method of just casting a double used to work, but this literally WILL. NOT. WORK. WHY!?!? WHO DECIDED THAT!?? IN WHAT WORLD IS 3.5124 = 35124?!?!
             Debug.LogInternal("x:" + res.x + " y:" + res.y);
             Debug.LogInternal("you see:" + (int) Double.valueOf(3.12031023).doubleValue() + ", but:" + (int) res.x);
-            drawContext.drawText(renderer,"guh", (int) res.x, (int) res.y,WHITE_RGBA,true);
+            Debug.LogInternal("uhh: " + res);
+            Debug.LogInternal("WHAT: " + res.y());
+            float[] whatthehell = {res.x,res.y};
+            Debug.LogInternal("i've lost it " + Arrays.toString(whatthehell));
+            drawContext.drawText(renderer,"guh", (int) whatthehell[0], (int) whatthehell[1],WHITE_RGBA,true);
         }
 
 
