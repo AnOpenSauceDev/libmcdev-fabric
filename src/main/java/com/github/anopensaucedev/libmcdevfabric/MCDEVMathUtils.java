@@ -83,19 +83,15 @@ public class MCDEVMathUtils {
         return quat.w * quat.w + quat.x * quat.x + quat.y * quat.y + quat.z * quat.z;
     }
 
-    public static Vector2d projectWorldPointToScreenSpace(Vec3d worldPosition, Window window, MinecraftClient client) {
-        Debug.LogInternal("uhh what the hell? " + worldPosition);
-        Vector3f posfixed = Vec3dtoVector3d(worldPosition); // for some reason if i dont do this i get infinity as a value?!?!
-        Matrix4f ModelViewProjection = FetchModelViewMatrix(client).mul(getProjectionMatrix(client)); // M * V * P
-        Vector3f screenPosition = ModelViewProjection.transformProject(posfixed);
+    public static Vector2f projectWorldPointToScreenSpace(Vector3f worldPosition, Window window, MinecraftClient client) { // i lost so much sanity figuring out a dumb quirk in java
+        Matrix4f ModelViewProjection = fetchModelViewMatrixMethod2(client.gameRenderer.getCamera().getRotation(),client.gameRenderer.getCamera().getPos().toVector3f()).mul(getProjectionMatrix(client)); // M * V * P
+        Vector3f screenPosition = ModelViewProjection.transformProject(worldPosition);
         Debug.LogInternal(screenPosition.toString());
         screenPosition.add(1f,1f,1f).mul(0.5f);
 
-        return new Vector2d(screenPosition.x * window.getWidth(),screenPosition.y * window.getHeight());
+        return new Vector2f( (screenPosition.x * window.getWidth()),(screenPosition.y * window.getHeight()));
     }
 
-    public static Vector3f Vec3dtoVector3d(Vec3d d){
-        return new Vector3f((float) d.x,(float) d.y,(float) d.z);
-    }
+
 
 }

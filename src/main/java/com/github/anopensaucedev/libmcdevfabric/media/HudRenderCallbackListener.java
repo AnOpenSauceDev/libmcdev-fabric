@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Vector2d;
 import org.joml.Vector2f;
+import org.joml.Vector2i;
 import org.joml.Vector3f;
 
 import java.net.MalformedURLException;
@@ -40,12 +41,13 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
            */
 
         if(MinecraftClient.getInstance().player.isSneaking()){
-            CameraUtils.DetachCamera(MinecraftClient.getInstance());
             TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
             MinecraftClient client = MinecraftClient.getInstance();
-            Vector2d res = MCDEVMathUtils.projectWorldPointToScreenSpace(new Vec3d(32,128,32),client.getWindow(),client);
+            Vector2f res = MCDEVMathUtils.projectWorldPointToScreenSpace(new Vector3f(32,128,32),client.getWindow(),client);
+            // the "normal" method of just casting a double used to work, but this literally WILL. NOT. WORK. WHY!?!? WHO DECIDED THAT!?? IN WHAT WORLD IS 3.5124 = 35124?!?!
             Debug.LogInternal("x:" + res.x + " y:" + res.y);
-            drawContext.drawText(renderer,"guh",(int) res.x,(int) res.y,WHITE_RGBA,true);
+            Debug.LogInternal("you see:" + (int) Double.valueOf(3.12031023).doubleValue() + ", but:" + (int) res.x);
+            drawContext.drawText(renderer,"guh", (int) res.x, (int) res.y,WHITE_RGBA,true);
         }
 
 
