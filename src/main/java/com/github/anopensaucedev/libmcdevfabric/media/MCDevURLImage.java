@@ -2,6 +2,7 @@ package com.github.anopensaucedev.libmcdevfabric.media;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
+import com.github.anopensaucedev.libmcdevfabric.Placeholders;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -60,16 +61,15 @@ public class MCDevURLImage {
                             }
                         }else {
 
-                            image = new NativeImage(1,1,true); // useStb seems to do nothing judjing by spark. This is the #1 lag-causer
-
+                            image = Placeholders.PLACEHOLDER_URL_IMAGE.image; // useStb seems to do nothing judging by spark. This is the #1 lag-causer
+                            width = image.getWidth();
+                            height = image.getHeight();
                         }
 
                         texture = new NativeImageBackedTexture(image);
                         if(register) {
                         MinecraftClient.getInstance().getTextureManager().registerTexture(textureID, texture);
                         isRegistered = true;
-                            width = image.getWidth();
-                            height = image.getHeight();
                         }
                     }).run();
 
