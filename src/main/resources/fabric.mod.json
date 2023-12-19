@@ -18,6 +18,9 @@
     ],
     "main": [
       "com.github.anopensaucedev.libmcdevfabric.Libmcdev"
+    ],
+    "preLaunch": [
+      "com.github.anopensaucedev.libmcdevfabric.PreLaunch"
     ]
   },
   "mixins": [

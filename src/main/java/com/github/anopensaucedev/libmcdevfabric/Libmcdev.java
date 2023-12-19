@@ -2,6 +2,7 @@ package com.github.anopensaucedev.libmcdevfabric;
 
 import com.github.anopensaucedev.libmcdevfabric.data.DataHandlingUtils;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayEntity;
+import com.github.anopensaucedev.libmcdevfabric.inspector.InspectorWindow;
 import com.github.anopensaucedev.libmcdevfabric.tests.Test;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
