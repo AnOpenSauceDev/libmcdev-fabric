@@ -2,6 +2,7 @@ package com.github.anopensaucedev.libmcdevfabric;
 
 import com.github.anopensaucedev.libmcdevfabric.data.DataHandlingUtils;
 import com.github.anopensaucedev.libmcdevfabric.entity.DisplayEntity;
+import com.github.anopensaucedev.libmcdevfabric.inspector.InspectorWindow;
 import com.github.anopensaucedev.libmcdevfabric.tests.Test;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -27,7 +28,7 @@ public class Libmcdev implements ModInitializer {
 
     public static String MOD_ID = "libmcdev";
 
-    DataHandlingUtils LibMCDevUtilsHandler = new DataHandlingUtils(MOD_ID);
+    //DataHandlingUtils LibMCDevUtilsHandler = new DataHandlingUtils(MOD_ID);
 
     @Override
     public void onInitialize() {
@@ -40,6 +41,7 @@ public class Libmcdev implements ModInitializer {
                     FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DisplayEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
             );
             FabricDefaultAttributeRegistry.register(DISPLAY, DisplayEntity.createMobAttributes());
+            Test.runTests();
         }
 
         /*
@@ -48,7 +50,7 @@ public class Libmcdev implements ModInitializer {
         */
 
 
-        Test.runTests();
+
 
 
     }

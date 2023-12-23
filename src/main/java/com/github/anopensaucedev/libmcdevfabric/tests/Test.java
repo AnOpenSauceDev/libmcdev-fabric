@@ -7,7 +7,7 @@ import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
 
 public class Test {
 
-    private static DataHandlingUtils dataHandlingUtils = new DataHandlingUtils("libmcdev-test");
+    private static DataHandlingUtils debugDataHandlingUtils = new DataHandlingUtils("libmcdev-test");
 
     public static void runTests(){
 
@@ -18,9 +18,9 @@ public class Test {
         try{
             testslogger.Log("----------------------");
             testslogger.Log("| TEST NAME | RESULT |");
-            dataHandlingUtils.Writer.WriteData("helloworld","Hello, World!".toCharArray());
+            debugDataHandlingUtils.Writer.WriteData("helloworld","Hello, World!".toCharArray());
             testslogger.Log("| Data Write: PASS |");
-            dataHandlingUtils.Reader.ReadData("helloworld");
+            debugDataHandlingUtils.Reader.ReadData("helloworld");
             testslogger.Log("| Data Read: PASS |");
             testslogger.Log("| OS FETCH: " + OSUtils.fetchOSName() + " |");
             testslogger.Log("----------------------");

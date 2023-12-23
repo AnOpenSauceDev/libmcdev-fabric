@@ -27,33 +27,45 @@ public class Debug {
         this.DebugLogger = LoggerFactory.getLogger(DebugLoggerName);
     }
 
-    public static void LogInternal(String x){
+    public static void LogInternal(String... strings){
         if(isDev)
-            InternalLogger.info(x);
+            for(int x = 0; x < strings.length; x++){
+                InternalLogger.info(strings[x]);
+            }
     }
 
-    public static void InternalLogWarning(String x){
+    public static void InternalLogWarning(String... strings){
         if(isDev)
-            InternalLogger.warn(x);
+            for(int x = 0; x < strings.length; x++){
+                InternalLogger.warn(strings[x]);
+            }
     }
 
-    public static void InternalLogError(String x){
+    public static void InternalLogError(String... strings){
         if(isDev)
-            InternalLogger.error(x);
+            for(int x = 0; x < strings.length; x++){
+                InternalLogger.error(strings[x]);
+            }
     }
 
-    public void Log(String x){
+    public void Log(String... strings){
         if(isDev)
-            DebugLogger.info(x);
+            for(int x = 0; x < strings.length; x++){
+            DebugLogger.info(strings[x]);
+            }
     }
 
-    public void LogWarning(String x){
+    public void LogWarning(String... strings){
         if(isDev)
-            DebugLogger.warn(x);
+            for(int x = 0; x < strings.length; x++){
+                DebugLogger.warn(strings[x]);
+            }
     }
 
-    public void LogError(String x){
+    public void LogError(String... strings){
         if(isDev)
-            DebugLogger.error(x);
+            for(int x = 0; x < strings.length; x++){
+                DebugLogger.error(strings[x]);
+            }
     }
 }
