@@ -3,6 +3,7 @@ package com.github.anopensaucedev.libmcdevfabric.media;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
+import com.github.anopensaucedev.libmcdevfabric.inspector.Inspectable;
 import com.github.anopensaucedev.libmcdevfabric.media.UI.FillablePanel;
 import com.github.anopensaucedev.libmcdevfabric.media.UI.Panel;
 import net.minecraft.client.MinecraftClient;
@@ -31,10 +32,11 @@ import static com.github.anopensaucedev.libmcdevfabric.media.GraphicsUtils.WHITE
 
 public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback {
 
+    int testOffset = 0;
 
     int progticks;
 
-
+    Inspectable<Integer> DebugMargin = new Inspectable<>(20,"Example Panel Debug Margin");
 
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
@@ -42,7 +44,7 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
 
 
         MinecraftClient client = MinecraftClient.getInstance();
-        FillablePanel panel = new FillablePanel(500,client.getWindow(),0,30,0,0);
+        FillablePanel panel = new FillablePanel(DebugMargin.getValue(),client.getWindow(),testOffset,30,0,0);
         panel.fillPanel(drawContext,WHITE_RGBA);
     }
 
