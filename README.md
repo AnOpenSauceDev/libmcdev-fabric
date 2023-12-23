@@ -5,7 +5,6 @@ a library to speed up development across all my mods by:
 2. being a portable drop-in API.
 3. provide additional helpers with tedious features.
 
-
 ## What will this be used for?
 
 Currently, this is being used as a quick hacky replacement for all my mods' logging solutions, but will likely grow into a tool over time.
@@ -15,7 +14,9 @@ Currently, this is being used as a quick hacky replacement for all my mods' logg
 - [ ] **Easy** client synced persistent server variables.
 - [X] The ability to fetch OS-specific details, such as Linux Distributions. (CentOS, Rocky, and ~~Alpine Linux~~ **_probably_ won't work,** as they _usually_ don't use `/etc/os-release`)
 - [ ] A simple video and animated image rendering API. (re-write in progress over at the `media-rewrite` branch.)
-
+- [ ] A modern UI system that allows you to throw things together fast
+- [ ] An animation and camera utilites system for semi-scripted events. 
+  
   <hr>
   
   ### **_possibly happening_**
