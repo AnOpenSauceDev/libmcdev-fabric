@@ -3,12 +3,15 @@ package com.github.anopensaucedev.libmcdevfabric.media;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
+import com.github.anopensaucedev.libmcdevfabric.entity.HelperPredicates;
 import com.github.anopensaucedev.libmcdevfabric.inspector.Inspectable;
 import com.github.anopensaucedev.libmcdevfabric.media.UI.FillablePanel;
 import com.github.anopensaucedev.libmcdevfabric.media.UI.Panel;
+import com.github.anopensaucedev.libmcdevfabric.render.CameraUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -40,12 +43,11 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
 
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
-        progticks++;
-
 
         MinecraftClient client = MinecraftClient.getInstance();
-        FillablePanel panel = new FillablePanel(DebugMargin.getValue(),client.getWindow(),testOffset,30,0,0);
-        panel.fillPanel(drawContext,WHITE_RGBA);
+        if(MinecraftClient.getInstance().player.isSneaking()){
+            CameraUtils.setCameraAsEntity(client,client.player.getWorld().getClosestPlayer((TargetPredicate) HelperPredicates.NOT_PLAYER, client.player.getX(),client.player.getY(),client.player.getZ()));
+        }
     }
 
     public int LerpScreenEffectColour(int startingColour,int endingColour,float progress){

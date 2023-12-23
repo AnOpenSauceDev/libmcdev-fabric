@@ -8,7 +8,7 @@ public class Inspectable <T extends Object>{
     public Inspectable(T value, String name){
         this.name = name;
         this.value = value;
-        InspectorWindow.AddInspectable(this);
+        //InspectorWindow.AddInspectable(this);
     }
 
     public T getValue() {
