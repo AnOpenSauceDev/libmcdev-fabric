@@ -28,7 +28,7 @@ public class Libmcdev implements ModInitializer {
 
     public static String MOD_ID = "libmcdev";
 
-    DataHandlingUtils LibMCDevUtilsHandler = new DataHandlingUtils(MOD_ID);
+    //DataHandlingUtils LibMCDevUtilsHandler = new DataHandlingUtils(MOD_ID);
 
     @Override
     public void onInitialize() {

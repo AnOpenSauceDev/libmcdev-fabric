@@ -10,12 +10,25 @@ public class CameraUtils {
 
     }
 
+    // Other Entity in this case being anything but our own player
+    public static boolean isAttachedToOtherEntity = false;
+
     public static void setCameraAsEntity(MinecraftClient client, Entity target){
         client.cameraEntity = target;
+        validateAttachState(client);
+    }
+
+    public static void validateAttachState(MinecraftClient client){
+        if(client.cameraEntity != client.player){
+            isAttachedToOtherEntity = true;
+        }else {
+            isAttachedToOtherEntity = false;
+        }
     }
 
     public static void resetCameraToPlayer(MinecraftClient client, Entity target){
         client.cameraEntity = client.player;
+        isAttachedToOtherEntity = false;
     }
 
 }

@@ -8,6 +8,7 @@ import com.github.anopensaucedev.libmcdevfabric.inspector.Inspectable;
 import com.github.anopensaucedev.libmcdevfabric.media.UI.FillablePanel;
 import com.github.anopensaucedev.libmcdevfabric.media.UI.Panel;
 import com.github.anopensaucedev.libmcdevfabric.render.CameraUtils;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
@@ -44,10 +45,6 @@ public class HudRenderCallbackListener implements net.fabricmc.fabric.api.client
     @Override
     public void onHudRender(DrawContext drawContext, float tickDelta) {
 
-        MinecraftClient client = MinecraftClient.getInstance();
-        if(MinecraftClient.getInstance().player.isSneaking()){
-            CameraUtils.setCameraAsEntity(client,client.player.getWorld().getClosestPlayer((TargetPredicate) HelperPredicates.NOT_PLAYER, client.player.getX(),client.player.getY(),client.player.getZ()));
-        }
     }
 
     public int LerpScreenEffectColour(int startingColour,int endingColour,float progress){

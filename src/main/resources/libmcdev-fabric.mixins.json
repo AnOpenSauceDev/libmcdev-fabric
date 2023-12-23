@@ -6,6 +6,8 @@
   "mixins": [
   ],
   "client": [
+    "CameraMixin",
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
