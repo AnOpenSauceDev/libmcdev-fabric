@@ -1,0 +1,9 @@
+
+
+version = project.version
+group = "com.github.anopensaucedev"
+
+// depend on the core of libMCdev
+dependencies {
+    implementation project(':libmcdev-core')
+}

@@ -1,5 +1,6 @@
 package com.github.anopensaucedev.libmcdevfabric.inspector;
 
+@Deprecated
 public class Inspectable <T extends Object>{
 
     public String name;

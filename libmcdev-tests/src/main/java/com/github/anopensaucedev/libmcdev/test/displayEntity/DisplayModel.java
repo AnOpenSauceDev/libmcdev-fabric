@@ -1,15 +1,12 @@
-package com.github.anopensaucedev.libmcdevfabric.entity;
+package com.github.anopensaucedev.libmcdev.test.displayEntity;
 
-import com.github.anopensaucedev.libmcdevfabric.media.HudRenderCallbackListener;
-import com.github.anopensaucedev.libmcdevfabric.media.MCDevURLImage;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class DisplayModel extends EntityModel<DisplayEntity> {
+public class DisplayModel extends EntityModel<DeveloperDisplayEntity> {
 
 
     private final ModelPart bb_main;
@@ -27,7 +24,7 @@ public class DisplayModel extends EntityModel<DisplayEntity> {
     }
 
     @Override
-    public void setAngles(DisplayEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+    public void setAngles(DeveloperDisplayEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 
     }
 

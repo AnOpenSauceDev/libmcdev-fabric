@@ -1,11 +1,10 @@
-package com.github.anopensaucedev.libmcdevfabric.media.UI;
+package com.github.anopensaucedev.libmcdev.media.UI;
 
-import com.github.anopensaucedev.libmcdevfabric.media.GraphicsUtils;
+import com.github.anopensaucedev.libmcdev.media.GraphicsUtils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.Window;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Vector2f;
-import org.joml.Vector2i;
 
 public class FillablePanel {
 

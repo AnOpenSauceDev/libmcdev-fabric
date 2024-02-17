@@ -1,12 +1,8 @@
-package com.github.anopensaucedev.libmcdevfabric.entity;
+package com.github.anopensaucedev.libmcdev.test.displayEntity;
 
-import com.github.anopensaucedev.libmcdevfabric.Debug;
-import com.github.anopensaucedev.libmcdevfabric.Placeholders;
-import com.github.anopensaucedev.libmcdevfabric.client.LibmcdevClient;
-import com.github.anopensaucedev.libmcdevfabric.media.HudRenderCallbackListener;
-import com.github.anopensaucedev.libmcdevfabric.media.MCDevURLImage;
+import com.github.anopensaucedev.libmcdev.media.MediaPlaceholders;
+import com.github.anopensaucedev.libmcdev.media.MCDevURLImage;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -15,7 +11,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 
-public class DisplayRenderer extends MobEntityRenderer<DisplayEntity,DisplayModel> {
+public class DisplayRenderer extends MobEntityRenderer<DeveloperDisplayEntity,DisplayModel> {
 
 
     public MCDevURLImage frame;
@@ -23,11 +19,11 @@ public class DisplayRenderer extends MobEntityRenderer<DisplayEntity,DisplayMode
     private long oldtd,td2 = 0,deltaTime,timeSinceLastFrame;
 
     public DisplayRenderer(EntityRendererFactory.Context ctx) {
-        super(ctx,new DisplayModel(ctx.getPart(LibmcdevClient.SCREEN_LAYER)),0.5f);
+        super(ctx,new DisplayModel(ctx.getPart(DisplayEntityClientInitializer.SCREEN_LAYER)),0.5f);
     }
 
     @Override
-    public void render(DisplayEntity screen, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+    public void render(DeveloperDisplayEntity screen, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
 
 
 
@@ -62,11 +58,11 @@ public class DisplayRenderer extends MobEntityRenderer<DisplayEntity,DisplayMode
     }
 
     @Override
-    public Identifier getTexture(DisplayEntity entity) {
+    public Identifier getTexture(DeveloperDisplayEntity entity) {
         if(this.frame != null){
         return frame.textureID;
         }else {
-            return Placeholders.PLACEHOLDER_URL_IMAGE.textureID;
+            return MediaPlaceholders.PLACEHOLDER_URL_IMAGE.textureID;
         }
     }
 }

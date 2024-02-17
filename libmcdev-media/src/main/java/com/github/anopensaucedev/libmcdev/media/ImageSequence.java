@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.media;
+package com.github.anopensaucedev.libmcdev.media;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;

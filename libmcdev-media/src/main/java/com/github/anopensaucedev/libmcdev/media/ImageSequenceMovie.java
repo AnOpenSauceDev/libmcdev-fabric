@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.media;
+package com.github.anopensaucedev.libmcdev.media;
 
 
 public class ImageSequenceMovie extends ImageSequence { // ImageSequences don't have (despite what my scary code may tell you), and shouldn't have the ability to be treated like videos. This is a hack.

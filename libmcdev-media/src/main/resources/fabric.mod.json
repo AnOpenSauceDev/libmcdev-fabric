@@ -1,27 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "libmcdev-fabric",
+  "id": "libmcdev-fabric-media",
   "version": "${version}",
-  "name": "libmcdev-fabric",
+  "name": "libMCdev media api",
   "description": "",
   "authors": [],
   "contact": {
     "repo": "https://github.com/AnOpenSauceDev/libmcdev-fabric"
   },
   "license": "Apache-2.0",
-  "icon": "assets/libmcdev-fabric/icon.png",
+  "icon": "assets/libmcdev-tests/icon.png",
   "environment": "*",
-  "accessWidener": "libmcdev.accesswidener",
   "entrypoints": {
-    "client": [
-      "com.github.anopensaucedev.libmcdevfabric.client.LibmcdevClient"
-    ],
-    "main": [
-      "com.github.anopensaucedev.libmcdevfabric.Libmcdev"
-    ]
   },
   "mixins": [
-    "libmcdev-fabric.mixins.json"
+    "libmcdev-media.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",

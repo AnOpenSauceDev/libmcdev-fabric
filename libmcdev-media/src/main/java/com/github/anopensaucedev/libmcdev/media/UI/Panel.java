@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.media.UI;
+package com.github.anopensaucedev.libmcdev.media.UI;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;

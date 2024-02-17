@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.tests;
+package com.github.anopensaucedev.libmcdev.test;
 
 import com.github.anopensaucedev.libmcdevfabric.data.DataHandlingUtils;
 import com.github.anopensaucedev.libmcdevfabric.Debug;

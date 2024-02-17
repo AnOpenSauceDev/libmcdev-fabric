@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.media;
+package com.github.anopensaucedev.libmcdev.media;
 
 import net.minecraft.client.util.Window;
 import org.joml.Vector2f;
