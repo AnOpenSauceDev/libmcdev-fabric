@@ -1,0 +1,7 @@
+version = project.version
+group = project.group
+
+dependencies{
+    // depend on the core of libMCdev (and whatever other modules i add to test later ig)
+    implementation project(':libmcdev-core')
+}
