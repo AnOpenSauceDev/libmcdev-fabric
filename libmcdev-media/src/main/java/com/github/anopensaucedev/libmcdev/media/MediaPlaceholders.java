@@ -1,6 +1,5 @@
 package com.github.anopensaucedev.libmcdev.media;
 
-import com.github.anopensaucedev.libmcdev.media.MCDevURLImage;
 
 public class MediaPlaceholders {
 

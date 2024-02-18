@@ -1,6 +1,7 @@
 package com.github.anopensaucedev.libmcdev.media;
 
 
+@Deprecated
 public class ImageSequenceMovie extends ImageSequence { // ImageSequences don't have (despite what my scary code may tell you), and shouldn't have the ability to be treated like videos. This is a hack.
 
     public int frame = 0;

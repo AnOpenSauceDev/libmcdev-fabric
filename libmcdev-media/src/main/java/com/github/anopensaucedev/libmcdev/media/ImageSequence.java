@@ -7,6 +7,7 @@ import net.minecraft.client.MinecraftClient;
 import java.io.File;
 import java.nio.file.Path;
 
+@Deprecated
 public class ImageSequence { // a really jank brute-force method im using to play Bad Apple in minecraft without using VLCJ, don't expect decent code here
 
     public ImageSequence(int frames){
