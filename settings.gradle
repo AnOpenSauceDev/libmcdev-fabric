@@ -8,4 +8,4 @@ pluginManagement {
     }
 }
 
-include("libmcdev-core","libmcdev-tests","libmcdev-media")
+include("libmcdev-core","libmcdev-tests","libmcdev-media","libmcdev-data")

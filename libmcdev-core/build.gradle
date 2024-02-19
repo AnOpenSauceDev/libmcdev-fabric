@@ -3,3 +3,9 @@
 version = project.version
 group = "com.github.anopensaucedev"
 
+tasks{
+runClient(){
+    print("cringe")
+    return;
+}
+}

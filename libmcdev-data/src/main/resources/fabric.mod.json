@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "libmcdev-fabric-media",
+  "version": "${version}",
+  "name": "libMCdev media api",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/AnOpenSauceDev/libmcdev-fabric"
+  },
+  "license": "Apache-2.0",
+  "icon": "assets/libmcdev-tests/icon.png",
+  "environment": "*",
+  "entrypoints": {
+  },
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": ">=1.20.2"
+  }
+}

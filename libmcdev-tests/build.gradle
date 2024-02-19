@@ -7,4 +7,12 @@ dependencies{
     // depend on the core of libMCdev (and whatever other modules i add to test later ig)
     implementation project(':libmcdev-core');
     implementation project(':libmcdev-media');
+    implementation project(':libmcdev-data');
+}
+//no (stops gradle from running doing runClient for every subproject.)
+tasks{
+    runClient(){
+        print("cringe")
+        return 0;
+    }
 }
