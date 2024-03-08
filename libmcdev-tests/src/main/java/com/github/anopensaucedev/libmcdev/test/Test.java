@@ -20,6 +20,7 @@ public class Test {
             testslogger.Log("| TEST NAME | RESULT |");
             debugDataHandlingUtils.Writer.WriteData("helloworld","Hello, World!".toCharArray());
             testslogger.Log("| Data Write: PASS |");
+            // not thread-safe yet
             debugDataHandlingUtils.Reader.ReadData("helloworld");
             testslogger.Log("| Data Read: PASS |");
             testslogger.Log("| OS FETCH: " + OSUtils.fetchOSName() + " |");

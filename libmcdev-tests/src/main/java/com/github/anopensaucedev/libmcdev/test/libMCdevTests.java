@@ -27,7 +27,5 @@ public class libMCdevTests implements ModInitializer {
             FabricDefaultAttributeRegistry.register(DISPLAY, DeveloperDisplayEntity.createMobAttributes());
             Test.runTests();
         }
-
-        Debug.LogInternal("tests are working!");
     }
 }

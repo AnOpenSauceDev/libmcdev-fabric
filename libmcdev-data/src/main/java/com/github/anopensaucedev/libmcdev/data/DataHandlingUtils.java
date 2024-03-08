@@ -86,14 +86,11 @@ public class DataHandlingUtils { // dataHandlingLib but better (built from the g
                 directory.mkdirs();
                 File file = new File(finalpath, (key + ".bin"));
 
-                //file.createNewFile();
-                //FileWriter Writer = new FileWriter(file);
-                //Writer.write(data);
-                //Writer.flush(); // remember to ALWAYS flush your files!
-                //Writer.close();
-                ;
-                data = Files.readAllBytes(file.toPath());
-
+                if(file.exists()) {
+                    data = Files.readAllBytes(file.toPath());
+                }else {
+                    throw new IOException("WARNING! You are trying to read a file that doesn't exist! Did you cause a race condition?");
+                }
 
             } catch (IOException e) {
                 ThreadDebugger.LogError(e.getLocalizedMessage());
