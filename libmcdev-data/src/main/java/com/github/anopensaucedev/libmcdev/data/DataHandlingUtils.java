@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.data;
+package com.github.anopensaucedev.libmcdev.data;
 
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;
@@ -61,7 +61,7 @@ public class DataHandlingUtils { // dataHandlingLib but better (built from the g
 
                 }
 
-                 }).run();
+                 }).start();
 
         }
 

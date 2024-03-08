@@ -1,6 +1,6 @@
 package com.github.anopensaucedev.libmcdev.test;
 
-import com.github.anopensaucedev.libmcdevfabric.data.DataHandlingUtils;
+import com.github.anopensaucedev.libmcdev.data.DataHandlingUtils;
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import com.github.anopensaucedev.libmcdevfabric.OSUtils;
 import com.github.anopensaucedev.libmcdevfabric.TempNameGenerator;

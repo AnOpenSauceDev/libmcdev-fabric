@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.data;
+package com.github.anopensaucedev.libmcdev.data;
 
 import com.github.anopensaucedev.libmcdevfabric.Libmcdev;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;

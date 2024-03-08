@@ -1,4 +1,4 @@
-package com.github.anopensaucedev.libmcdevfabric.data.keyframe;
+package com.github.anopensaucedev.libmcdev.data.keyframe;
 
 import java.util.List;
 
