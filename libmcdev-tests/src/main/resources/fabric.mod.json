@@ -16,7 +16,8 @@
       "com.github.anopensaucedev.libmcdev.test.libMCdevTests"
     ],
     "client": [
-      "com.github.anopensaucedev.libmcdev.test.displayEntity.DisplayEntityClientInitializer"
+      "com.github.anopensaucedev.libmcdev.test.displayEntity.DisplayEntityClientInitializer",
+      "com.github.anopensaucedev.libmcdev.test.libMCdevTestsClient"
     ]
   },
   "mixins": [

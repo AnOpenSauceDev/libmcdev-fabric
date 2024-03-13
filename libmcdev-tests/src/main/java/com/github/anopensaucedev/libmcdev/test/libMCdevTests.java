@@ -1,13 +1,16 @@
 package com.github.anopensaucedev.libmcdev.test;
 
 import com.github.anopensaucedev.libmcdev.test.displayEntity.DeveloperDisplayEntity;
+import com.github.anopensaucedev.libmcdev.test.testlistener.HudRenderCallbackListener;
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -15,10 +18,21 @@ import net.minecraft.util.Identifier;
 public class libMCdevTests implements ModInitializer {
 
     public static EntityType<DeveloperDisplayEntity> DISPLAY;
+
+    public static String TESTS_ID = "libmcdev-tests";
+
+
+    public static final DefaultParticleType DUST_PUFF = FabricParticleTypes.simple();
+
     @Override
     public void onInitialize() {
 
         if(Debug.isDev){
+
+            Registry.register(Registries.PARTICLE_TYPE, new Identifier(TESTS_ID,"dust_puff"),DUST_PUFF);
+
+            HudRenderCallbackListener.EVENT.register(new HudRenderCallbackListener());
+
             DISPLAY = Registry.register(
                     Registries.ENTITY_TYPE,
                     new Identifier("libmcdev", "devscreen"),

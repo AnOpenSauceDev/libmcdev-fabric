@@ -19,10 +19,17 @@ public class DataHandlingUtils { // dataHandlingLib but better (built from the g
 
     String Namespace;
 
+    /**
+     * Starting multiple writes will distribute across multiple threads. Be careful with thread safety!
+     */
     public ThreadedDataWriter Writer = new ThreadedDataWriter();
 
     public DataReader Reader = new DataReader();
 
+    /**
+     *
+     * @param namespace The name of the folder dedicated to your data. You should use your ModID if you can.
+     */
     public DataHandlingUtils(String namespace){
         this.Namespace = namespace;
     }
@@ -79,7 +86,6 @@ public class DataHandlingUtils { // dataHandlingLib but better (built from the g
 
             Path path2 = Paths.get("PersistentDataHandler",Namespace,key);
             Path path = FabricLoader.getInstance().getGameDir().resolve(path2);
-            ThreadDebugger.Log("creating dir with path: " + path);
             try {
                 String finalpath = path.toFile().getAbsolutePath();
                 File directory = new File(finalpath);
