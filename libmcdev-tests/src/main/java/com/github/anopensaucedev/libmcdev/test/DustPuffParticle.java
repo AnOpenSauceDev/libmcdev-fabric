@@ -14,8 +14,13 @@ public class DustPuffParticle extends SpriteBillboardParticle {
 
     @Override
     public void tick(){
-        scale++;
-        if(age > 20*3){
+        age++;
+
+        scale += 0.05f;
+
+        alpha -=0.05f;
+
+        if(age > 6 * 20){
             markDead();
         };
     }
@@ -31,7 +36,9 @@ public class DustPuffParticle extends SpriteBillboardParticle {
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
             DustPuffParticle dustpuff = new DustPuffParticle(clientWorld, d, e, f, g, h, i);
             dustpuff.setAlpha(0.95F);
+            dustpuff.scale = 1;
             dustpuff.setSprite(this.spriteProvider);
+            dustpuff.setVelocity(libMCdevTests.RANDOM_INSTANCE.nextDouble(-1,1),libMCdevTests.RANDOM_INSTANCE.nextDouble(0,1),libMCdevTests.RANDOM_INSTANCE.nextDouble(-1,1));
             return dustpuff;
         }
     }

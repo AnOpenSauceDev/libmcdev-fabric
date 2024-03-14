@@ -15,11 +15,15 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class libMCdevTests implements ModInitializer {
 
     public static EntityType<DeveloperDisplayEntity> DISPLAY;
 
     public static String TESTS_ID = "libmcdev-tests";
+
+    public static ThreadLocalRandom RANDOM_INSTANCE = ThreadLocalRandom.current();
 
 
     public static final DefaultParticleType DUST_PUFF = FabricParticleTypes.simple();
