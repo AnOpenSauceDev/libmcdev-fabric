@@ -3,6 +3,8 @@ package com.github.anopensaucedev.libmcdevfabric.mixin;
 import com.github.anopensaucedev.libmcdevfabric.render.CameraUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.Camera;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

@@ -18,7 +18,7 @@ public class DustPuffParticle extends SpriteBillboardParticle {
 
         scale += 0.01f;
 
-        alpha -=0.005f;
+        alpha -=0.001f;
 
         if(alpha <= 0){
             markDead();
