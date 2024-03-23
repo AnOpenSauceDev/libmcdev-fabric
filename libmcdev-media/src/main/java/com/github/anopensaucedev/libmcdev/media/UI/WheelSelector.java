@@ -57,7 +57,7 @@ public class WheelSelector {
 
         // for this, we put the text down by 0.9x of the screen, then offset it by the text width.
         ctx.drawText(renderer,text,(int) ((ctx.getScaledWindowWidth()/2) - (renderer.getWidth(text) * 0.5)), (int) (ctx.getScaledWindowHeight() - (ctx.getScaledWindowHeight() * 0.9)),0xFFFFFF,true);
-        
+
         var scale = 32;
 
         // ctx.drawGuiTexture is completely borked here for some reason.
