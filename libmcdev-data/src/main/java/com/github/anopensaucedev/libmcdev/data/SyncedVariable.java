@@ -59,7 +59,7 @@ import java.util.List;
                     ServerPlayNetworking.send(entity,ID,buf); // send it out to everyone else
                 }));
                 }else {
-                    variableLogger.warn("unprivileged user " + player.getName().getLiteralString() + "tried to send data as a sender.");
+                    variableLogger.warn("unprivileged user " + player.getName().getString() + "tried to send data as a sender.");
                 }
             }));
         }else {
