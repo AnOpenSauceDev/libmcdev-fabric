@@ -8,11 +8,7 @@ dependencies {
     implementation project(':libmcdev-core')
 }
 
-
-//no
-tasks{
-    runClient(){
-        print("cringe")
-        return;
-    }
+java{
+    archivesBaseName = "libmcdev-${mod_version}-media"
+    withSourcesJar()
 }

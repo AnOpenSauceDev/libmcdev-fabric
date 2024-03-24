@@ -3,9 +3,8 @@
 version = project.version
 group = "com.github.anopensaucedev"
 
-tasks{
-runClient(){
-    print("cringe")
-    return;
-}
+
+java{
+    archivesBaseName = "libmcdev-${mod_version}-core"
+    withSourcesJar()
 }

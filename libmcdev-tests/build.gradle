@@ -9,10 +9,8 @@ dependencies{
     implementation project(':libmcdev-media');
     implementation project(':libmcdev-data');
 }
-//no (stops gradle from running doing runClient for every subproject.)
-tasks{
-    runClient(){
-        print("cringe")
-        return 0;
-    }
+
+java{
+    archivesBaseName = "libmcdev-${mod_version}-tests"
+    withSourcesJar()
 }
