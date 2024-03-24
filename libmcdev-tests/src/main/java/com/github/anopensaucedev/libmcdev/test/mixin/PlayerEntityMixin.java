@@ -41,7 +41,7 @@ public abstract class PlayerEntityMixin extends Entity {
 
 
 
-   
+
 
         dustTicks++;
 
