@@ -3,7 +3,8 @@ package com.github.anopensaucedev.libmcdevfabric;
 import org.apache.commons.lang3.SystemUtils;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class OSUtils {
 
@@ -20,8 +21,7 @@ public class OSUtils {
 
         if(IS_UNIX_LIKE) {
             try {
-                Process data = Runtime.getRuntime().exec("cat /etc/os-release"); // will not work on Alpine or CentOS-based. FreeBSD should work though.
-                String osdata = new String(data.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
+                String osdata = Files.readString(Path.of("/etc/os-release")); // will not work on some distros like Alpine or CentOS/CentOS-based.
                 String[] osrelease = osdata.split("\\r?\\n"); // so we can actually read the lines
                 String osReleaseName;
                 for (int x = 0; x < osrelease.length; x++) {
