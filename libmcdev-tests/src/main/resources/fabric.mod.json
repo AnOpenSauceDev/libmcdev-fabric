@@ -3,7 +3,7 @@
   "id": "libmcdev-fabric-tests",
   "version": "${version}",
   "name": "LibMCdev Testmods",
-  "description": "",
+  "description": "Tests for libMCdev. If you're seeing this, I really, really screwed up. Please make an issue if you're seeing this outside a dev environment.",
   "authors": [],
   "contact": {
     "repo": "https://github.com/AnOpenSauceDev/libmcdev-fabric"
