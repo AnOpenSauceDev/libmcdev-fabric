@@ -3,9 +3,11 @@ package com.github.anopensaucedev.libmcdev.test.testlistener;
 import com.github.anopensaucedev.libmcdev.media.MCDevURLImage;
 import com.github.anopensaucedev.libmcdev.media.UI.FillablePanel;
 import com.github.anopensaucedev.libmcdev.media.UI.WheelSelector;
+import com.github.anopensaucedev.libmcdevfabric.render.ArbitraryRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.render.block.entity.EndPortalBlockEntityRenderer;
 import net.minecraft.util.Identifier;
 
 import java.net.MalformedURLException;
@@ -45,6 +47,10 @@ public class HudRenderCallbackListener implements HudRenderCallback {
                 t = 1;
             }
 
+
+            //test arb
+            ArbitraryRenderer.renderArbitraryFace(drawContext.getMatrices(),drawContext.getVertexConsumers(),client.player.getPos().add(0.0,0.0,4.0).toVector3f());
+            ArbitraryRenderer.renderArbitraryFace(drawContext.getMatrices(),drawContext.getVertexConsumers(),client.player.getPos().add(0.0,0.0,4.0).toVector3f().negate());
 
             // what? writing 0xFFFFFF didn't work for me? Which ofc makes no sense as 0xFFFFFF == 16777215.
             //TODO: question sanity
