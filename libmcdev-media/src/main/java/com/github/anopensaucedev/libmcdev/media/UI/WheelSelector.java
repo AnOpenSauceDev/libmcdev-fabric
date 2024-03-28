@@ -43,7 +43,7 @@ public class WheelSelector {
             SlotData = slotData;
         }
 
-        T SlotData;
+        public T SlotData;
 
         /**
          * Have something you want to arbitrarily render/do on top of your slot? Now you can! Just extend this class and override. This gets called by the renderer itself, so I wouldn't recommend calling it yourself.

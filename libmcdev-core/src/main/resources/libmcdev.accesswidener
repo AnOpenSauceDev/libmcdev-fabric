@@ -1,1 +1,7 @@
 accessWidener v2 named
+
+# Camera transformations, part of code taken from the Fabric API's PR #3155
+transitive-accessible method net/minecraft/client/render/Camera moveBy (DDD)V
+transitive-accessible method net/minecraft/client/render/Camera setRotation (FF)V
+transitive-accessible method net/minecraft/client/render/Camera setPos (DDD)V
+transitive-accessible method net/minecraft/client/render/Camera setPos (Lnet/minecraft/util/math/Vec3d;)V

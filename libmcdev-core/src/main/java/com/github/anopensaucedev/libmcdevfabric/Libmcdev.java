@@ -21,10 +21,6 @@ public class Libmcdev implements ModInitializer {
 
 
 
-        /*
-        LibMCDevUtilsHandler.Writer.WriteData("flags.forceHudStuff","false".toCharArray());
-        LibMCDevUtilsHandler.Writer.WriteData("flags.exampleDataFlag","true".toCharArray());
-        */
 
 
 

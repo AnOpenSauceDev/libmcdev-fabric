@@ -1,6 +1,7 @@
 package com.github.anopensaucedev.libmcdev.test;
 
 import com.github.anopensaucedev.libmcdev.test.displayEntity.DeveloperDisplayEntity;
+import com.github.anopensaucedev.libmcdev.test.testlistener.CameraListener;
 import com.github.anopensaucedev.libmcdev.test.testlistener.HudRenderCallbackListener;
 import com.github.anopensaucedev.libmcdevfabric.Debug;
 import net.fabricmc.api.ModInitializer;
@@ -44,6 +45,8 @@ public class libMCdevTests implements ModInitializer {
             );
             FabricDefaultAttributeRegistry.register(DISPLAY, DeveloperDisplayEntity.createMobAttributes());
             Test.runTests();
+
+            CameraListener.EVENT.register(new CameraListener());
         }
     }
 }

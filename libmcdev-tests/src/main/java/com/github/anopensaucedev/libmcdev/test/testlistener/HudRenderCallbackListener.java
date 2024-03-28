@@ -1,17 +1,14 @@
 package com.github.anopensaucedev.libmcdev.test.testlistener;
 
-import com.github.anopensaucedev.libmcdev.media.MCDevURLImage;
+import com.github.anopensaucedev.libmcdev.media.UI.DebugScreen;
 import com.github.anopensaucedev.libmcdev.media.UI.FillablePanel;
 import com.github.anopensaucedev.libmcdev.media.UI.WheelSelector;
 import com.github.anopensaucedev.libmcdevfabric.render.ArbitraryRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.block.entity.EndPortalBlockEntityRenderer;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class HudRenderCallbackListener implements HudRenderCallback {
 
@@ -20,6 +17,8 @@ public class HudRenderCallbackListener implements HudRenderCallback {
     WheelSelector.WheelSlot[] slots = new WheelSelector.WheelSlot[5];
 
     WheelSelector selector = new WheelSelector(slots);
+
+    DebugScreen dbg = new DebugScreen(Text.of("guh"));
 
     int t;
 
@@ -47,6 +46,9 @@ public class HudRenderCallbackListener implements HudRenderCallback {
                 t = 1;
             }
 
+            if(client.player.isSneaking()){
+            client.setScreen(dbg);
+            }
 
             //test arb
             ArbitraryRenderer.renderArbitraryFace(drawContext.getMatrices(),drawContext.getVertexConsumers(),client.player.getPos().add(0.0,0.0,4.0).toVector3f());

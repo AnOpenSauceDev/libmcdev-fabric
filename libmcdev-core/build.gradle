@@ -4,6 +4,7 @@ version = project.version
 group = "com.github.anopensaucedev"
 
 
+
 java{
     archivesBaseName = "libmcdev-${mod_version}-core"
     withSourcesJar()

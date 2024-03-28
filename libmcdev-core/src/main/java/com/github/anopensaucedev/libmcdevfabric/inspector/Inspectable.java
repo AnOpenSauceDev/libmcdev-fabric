@@ -1,7 +1,6 @@
 package com.github.anopensaucedev.libmcdevfabric.inspector;
 
-// deprecated due to being really, really dumb
-@Deprecated
+
 public class Inspectable <T extends Object>{
 
     public String name;
@@ -10,7 +9,6 @@ public class Inspectable <T extends Object>{
     public Inspectable(T value, String name){
         this.name = name;
         this.value = value;
-        //InspectorWindow.AddInspectable(this);
     }
 
     public T getValue() {
