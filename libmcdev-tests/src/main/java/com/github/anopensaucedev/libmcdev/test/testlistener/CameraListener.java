@@ -23,7 +23,9 @@ public class CameraListener implements CameraUtils.CameraUpdateCallback {
                 Entity[] entities1 = entities.toArray(new Entity[0]);
                 var meanpos = EntityUtils.CreateMeanPosOfEntities(true,entities1);
 
+                if(entities1.length != 0){
                 camera.setPos(meanpos.x,meanpos.y,meanpos.z);
+                }
 
             }
         }

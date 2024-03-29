@@ -18,7 +18,7 @@ public class EntityUtils {
      *
      * @param compensate whether to compensate for the player's initial height.
      * @param entities your entities
-     * @return
+     * @return The mean position of all entities in the list as a Vector3d
      */
     public static Vector3d CreateMeanPosOfEntities(boolean compensate, Entity... entities){
 
