@@ -1,5 +1,7 @@
 package com.github.anopensaucedev.libmcdev.test.testlistener;
 
+import com.github.anopensaucedev.libmcdevfabric.entity.EntityUtils;
+import com.github.anopensaucedev.libmcdevfabric.entity.HelperPredicates;
 import com.github.anopensaucedev.libmcdevfabric.render.CameraUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.Camera;
@@ -17,7 +19,11 @@ public class CameraListener implements CameraUtils.CameraUpdateCallback {
         if(player != null){
             if(player.isSneaking()){
 
+                var entities = EntityUtils.getEntitiesInRadius(HelperPredicates.NOT_PLAYER,10,player);
+                Entity[] entities1 = entities.toArray(new Entity[0]);
+                var meanpos = EntityUtils.CreateMeanPosOfEntities(true,entities1);
 
+                camera.setPos(meanpos.x,meanpos.y,meanpos.z);
 
             }
         }

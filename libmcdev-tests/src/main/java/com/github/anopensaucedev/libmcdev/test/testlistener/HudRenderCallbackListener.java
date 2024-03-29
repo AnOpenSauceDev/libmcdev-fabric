@@ -47,7 +47,7 @@ public class HudRenderCallbackListener implements HudRenderCallback {
             }
 
             if(client.player.isSneaking()){
-            client.setScreen(dbg);
+            //client.setScreen(dbg);
             }
 
             //test arb
