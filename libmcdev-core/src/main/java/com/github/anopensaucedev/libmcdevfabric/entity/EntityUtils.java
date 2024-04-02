@@ -14,6 +14,10 @@ public class EntityUtils {
         return source.getWorld().getOtherEntities(source,new Box(source.getX() - radius, source.getY() - radius, source.getZ() - radius,source.getX() + radius, source.getY() + radius, source.getZ() + radius),predicate);
     }
 
+    public static List<Entity> getEntitiesInRadiusIncludingSource(Predicate<Entity> predicate, int radius, Entity source){
+        return source.getWorld().getOtherEntities(null,new Box(source.getX() - radius, source.getY() - radius, source.getZ() - radius,source.getX() + radius, source.getY() + radius, source.getZ() + radius),predicate);
+    }
+
     /**
      *
      * @param compensate whether to compensate for the player's initial height.

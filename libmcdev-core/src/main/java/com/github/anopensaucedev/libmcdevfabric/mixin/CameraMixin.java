@@ -26,4 +26,6 @@ public abstract class CameraMixin {
         CameraUtils.CameraUpdateCallback.EVENT.invoker().cameraUpdate(CameraUtils.CAMERA_INSTANCE,area,focusedEntity,thirdPerson,inverseView,tickDelta);
     }
 
+
+
 }
