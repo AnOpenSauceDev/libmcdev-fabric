@@ -41,8 +41,6 @@ public abstract class PlayerEntityMixin extends Entity {
 
 
 
-
-
         dustTicks++;
 
         if(dustTicks > 20){

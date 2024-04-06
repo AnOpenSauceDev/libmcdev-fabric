@@ -8,13 +8,15 @@ import java.util.List;
 
 public class ServerListener implements ServerTickEvents.EndTick{
 
-    public static List<UpdateTracker> trackers = new ArrayList<>();
+    public static List<UpdateTracker<?>> trackers = new ArrayList<>();
 
     @Override
     public void onEndTick(MinecraftServer server) {
 
 
-        for (UpdateTracker tracker : trackers){
+
+
+        for (UpdateTracker<?> tracker : trackers){
             tracker.update(server);
         }
 
